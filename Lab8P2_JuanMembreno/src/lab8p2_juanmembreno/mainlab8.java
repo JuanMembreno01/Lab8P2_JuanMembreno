@@ -86,6 +86,20 @@ public class mainlab8 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
+        filtropormarca = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        marcaF = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla2 = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        filtroporcategoria = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        filtro = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabla3 = new javax.swing.JTable();
+        categoria = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -500,6 +514,167 @@ public class mainlab8 extends javax.swing.JFrame {
                 .addContainerGap(204, Short.MAX_VALUE))
         );
 
+        jLabel23.setText("Igrese la marca");
+
+        marcaF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                marcaFActionPerformed(evt);
+            }
+        });
+
+        tabla2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Vin", "Color", "Marca", "Tipo de Motor", "Tipo de Carro"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tabla2);
+
+        jButton4.setText("filtrar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        jButton6.setText("salir");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout filtropormarcaLayout = new javax.swing.GroupLayout(filtropormarca.getContentPane());
+        filtropormarca.getContentPane().setLayout(filtropormarcaLayout);
+        filtropormarcaLayout.setHorizontalGroup(
+            filtropormarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filtropormarcaLayout.createSequentialGroup()
+                .addGroup(filtropormarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(filtropormarcaLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addComponent(marcaF, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(filtropormarcaLayout.createSequentialGroup()
+                        .addGap(394, 394, 394)
+                        .addComponent(jButton6)))
+                .addContainerGap(162, Short.MAX_VALUE))
+            .addGroup(filtropormarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(filtropormarcaLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        filtropormarcaLayout.setVerticalGroup(
+            filtropormarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filtropormarcaLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(filtropormarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(marcaF, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(84, 84, 84))
+            .addGroup(filtropormarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(filtropormarcaLayout.createSequentialGroup()
+                    .addGap(160, 160, 160)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(161, Short.MAX_VALUE)))
+        );
+
+        jLabel24.setText("Ingrese la categoria((generalista, premium, deportivo))");
+
+        filtro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filtroActionPerformed(evt);
+            }
+        });
+
+        tabla3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Vin", "Color", "Marca", "Tipo de Motor", "Tipo de Carro"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tabla3);
+
+        categoria.setText("filtrar");
+        categoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                categoriaMouseClicked(evt);
+            }
+        });
+
+        jButton5.setText("salir");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout filtroporcategoriaLayout = new javax.swing.GroupLayout(filtroporcategoria.getContentPane());
+        filtroporcategoria.getContentPane().setLayout(filtroporcategoriaLayout);
+        filtroporcategoriaLayout.setHorizontalGroup(
+            filtroporcategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filtroporcategoriaLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(filtro, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128))
+            .addGroup(filtroporcategoriaLayout.createSequentialGroup()
+                .addGap(511, 511, 511)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(filtroporcategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(filtroporcategoriaLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        filtroporcategoriaLayout.setVerticalGroup(
+            filtroporcategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filtroporcategoriaLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(filtroporcategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filtro, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+            .addGroup(filtroporcategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(filtroporcategoriaLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Autoss");
@@ -533,6 +708,11 @@ public class mainlab8 extends javax.swing.JFrame {
         jMenu1.add(jMenu5);
 
         jMenuItem2.setText("Filtro por marca");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem6.setText("Filtro por categoria");
@@ -584,7 +764,7 @@ public class mainlab8 extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
+        filtroporcategoria();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -788,6 +968,85 @@ public class mainlab8 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void marcaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_marcaFActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        filtropormarca();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        admiistrautos ap
+                    = new admiistrautos("./autosvin.cbm");
+            ap.cargarArchivo();
+            for(int i=0;i<ap.getListaautosm().size();i++){
+                if(ap.getListaautosm().get(i).getMarca().equals(marcaF.getText())){
+                    Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+            DefaultTableModel modelo
+                    = (DefaultTableModel) tabla2.getModel();
+            modelo.addRow(newrow);
+            tabla2.setModel(modelo);
+                }
+            }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroActionPerformed
+      admiistrautos ap
+                    = new admiistrautos("./autosvin.cbm");
+            ap.cargarArchivo();
+           while(!filtro.equals("generalista")&!filtro.equals("premium")&!filtro.equals("deportivo")){
+              JOptionPane.showMessageDialog(this, " Categoria  Incorrecta");  
+              filtro.setText("");
+           }
+           if(filtro.equals("generalista")){
+            for(int i=0;i<ap.getListaautosm().size();i++){
+                if(ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("seat")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("skoda")){
+                     Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+            DefaultTableModel modelo
+                    = (DefaultTableModel) tabla3.getModel();
+            modelo.addRow(newrow);
+            tabla3.setModel(modelo);
+                }
+            }   
+           }if(filtro.equals("premium")){
+              for(int i=0;i<ap.getListaautosm().size();i++){
+                if(ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("audi")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Volkswagen")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Bentley")){
+                     Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+            DefaultTableModel modelo
+                    = (DefaultTableModel) tabla3.getModel();
+            modelo.addRow(newrow);
+            tabla3.setModel(modelo);
+                }
+            }   
+           }if(filtro.equals("deportivo")){
+                 for(int i=0;i<ap.getListaautosm().size();i++){
+                if(ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Porsche")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Lamborghini")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Bugatti")){
+                     Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+            DefaultTableModel modelo
+                    = (DefaultTableModel) tabla3.getModel();
+            modelo.addRow(newrow);
+            tabla3.setModel(modelo);
+                }
+            }   
+           }
+            
+    }//GEN-LAST:event_filtroActionPerformed
+
+    private void categoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoriaMouseClicked
+       
+    }//GEN-LAST:event_categoriaMouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        tabla3.removeAll();
+        filtroporcategoria.setVisible(false);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       tabla2.removeAll();
+        filtropormarca.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -843,20 +1102,40 @@ public class mainlab8 extends javax.swing.JFrame {
         eliminar.setLocationRelativeTo(this);
         eliminar.setVisible(true);
     }
+    
+    private void filtropormarca() {
+        filtropormarca.setModal(true);
+        filtropormarca.pack();
+        filtropormarca.setLocationRelativeTo(this);
+        filtropormarca.setVisible(true);
+    }
+    private void filtroporcategoria() {
+        filtroporcategoria.setModal(true);
+        filtroporcategoria.pack();
+        filtroporcategoria.setLocationRelativeTo(this);
+        filtroporcategoria.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cantidaddepasajerosA;
     private javax.swing.JTextField cantidaddepasajerosA1;
+    private javax.swing.JButton categoria;
     private javax.swing.JComboBox<String> cb_autos;
     private javax.swing.JComboBox<String> cb_eliminar;
     private javax.swing.JTextField colorA;
     private javax.swing.JTextField colorA1;
     private javax.swing.JDialog eliminar;
+    private javax.swing.JTextField filtro;
+    private javax.swing.JDialog filtroporcategoria;
+    private javax.swing.JDialog filtropormarca;
     private javax.swing.JTextField hibridacionA;
     private javax.swing.JTextField hibridacionA1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -872,6 +1151,8 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -892,8 +1173,11 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField marcaA;
     private javax.swing.JTextField marcaA1;
+    private javax.swing.JTextField marcaF;
     private javax.swing.JDialog modificarauto;
     private javax.swing.JDialog nuevoauto;
     private javax.swing.JTextField numerodepuertasA;
@@ -901,6 +1185,8 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JTextField precioA;
     private javax.swing.JTextField precioA1;
     private javax.swing.JTable tabla1;
+    private javax.swing.JTable tabla2;
+    private javax.swing.JTable tabla3;
     private javax.swing.JTextField tiempodeensamblajeA;
     private javax.swing.JTextField tiempodeensamblajeA1;
     private javax.swing.JTextField tipodecarroA;
