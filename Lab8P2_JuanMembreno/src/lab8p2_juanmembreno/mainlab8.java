@@ -5,9 +5,11 @@
  */
 package lab8p2_juanmembreno;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -82,7 +84,8 @@ public class mainlab8 extends javax.swing.JFrame {
         eliminar = new javax.swing.JDialog();
         cb_eliminar = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla1 = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -432,20 +435,41 @@ public class mainlab8 extends javax.swing.JFrame {
                 .addContainerGap(131, Short.MAX_VALUE))
         );
 
-        cb_eliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_eliminar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_eliminarItemStateChanged(evt);
+            }
+        });
+        cb_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_eliminarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Vin", "Color", "Marca", "Tipo de Motor", "Tipo de Carro"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabla1);
+
+        jButton3.setText("Eliminar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout eliminarLayout = new javax.swing.GroupLayout(eliminar.getContentPane());
         eliminar.getContentPane().setLayout(eliminarLayout);
@@ -458,7 +482,10 @@ public class mainlab8 extends javax.swing.JFrame {
                         .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(eliminarLayout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(eliminarLayout.createSequentialGroup()
+                        .addGap(417, 417, 417)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         eliminarLayout.setVerticalGroup(
@@ -468,7 +495,9 @@ public class mainlab8 extends javax.swing.JFrame {
                 .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -494,6 +523,11 @@ public class mainlab8 extends javax.swing.JFrame {
         jMenu5.add(jMenuItem4);
 
         jMenuItem5.setText("Listar/Eliminar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem5);
 
         jMenu1.add(jMenu5);
@@ -538,13 +572,13 @@ public class mainlab8 extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         admiistrautos ap
-                    = new admiistrautos("./autosvin.cbm");
-            ap.cargarArchivo();
-        for(int i=0;i<ap.getListaautosm().size();i++){
-             DefaultComboBoxModel modelo1
-                            = new DefaultComboBoxModel(
-                                    ap.getListaautosm().toArray());
-                    cb_autos.setModel(modelo1);
+                = new admiistrautos("./autosvin.cbm");
+        ap.cargarArchivo();
+        for (int i = 0; i < ap.getListaautosm().size(); i++) {
+            DefaultComboBoxModel modelo1
+                    = new DefaultComboBoxModel(
+                            ap.getListaautosm().toArray());
+            cb_autos.setModel(modelo1);
         }
         modificarauto();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
@@ -560,16 +594,16 @@ public class mainlab8 extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         //agregar
-        Dba db = new Dba("./lab8.mdb");
+        Dba db = new Dba("./lab8.accdb");
         db.conectar();
         try {
             admiistrautos ap
                     = new admiistrautos("./autosvin.cbm");
             ap.cargarArchivo();
-            int c;
+            /* int c;
             String n;
             c = Integer.parseInt(JOptionPane.showInputDialog("Codigo"));
-            n = JOptionPane.showInputDialog("Nombre");
+            n = JOptionPane.showInputDialog("Nombre");*/
             db.query.execute("INSERT INTO Autos"
                     + " (Vin,marca,tipo  de carro,numero de puertas,color,tipo de motor,precio,hibridacion,catidad de pasajeros,tiempo de ensamblaje)"
                     + "VALUES ('" + Integer.parseInt(vinA.getText()) + "', '" + tipodecarroA.getText() + "', '" + Integer.parseInt(numerodepuertasA.getText()) + "', '" + colorA.getText() + "', '" + tipodemotorA.getText() + "', '" + Integer.parseInt(precioA.getText()) + "', '" + hibridacionA.getText() + "', '" + Integer.parseInt(cantidaddepasajerosA.getText()) + "', '" + tiempodeensamblajeA.getText() + "')");
@@ -579,7 +613,7 @@ public class mainlab8 extends javax.swing.JFrame {
                     + " VALUES ('" + c + "', '" + n + "')");*/
             db.commit();
             JOptionPane.showMessageDialog(this, "Auto Agregado");
-            autosm a = new autosm(vinA.getText(),marcaA.getText(),tipodecarroA.getText(),Integer.parseInt(numerodepuertasA.getText()),colorA.getText(),tipodemotorA.getText(),Integer.parseInt(precioA.getText()),hibridacionA.getText(),Integer.parseInt(cantidaddepasajerosA.getText()),Integer.parseInt(tiempodeensamblajeA.getText()));
+            autosm a = new autosm(vinA.getText(), marcaA.getText(), tipodecarroA.getText(), Integer.parseInt(numerodepuertasA.getText()), colorA.getText(), tipodemotorA.getText(), Integer.parseInt(precioA.getText()), hibridacionA.getText(), Integer.parseInt(cantidaddepasajerosA.getText()), Integer.parseInt(tiempodeensamblajeA.getText()));
             ap.getListaautosm().add(a);
             ap.escribirArchivo();
             vinA.setText("");
@@ -592,7 +626,7 @@ public class mainlab8 extends javax.swing.JFrame {
             hibridacionA.setText("");
             cantidaddepasajerosA.setText("");
             tiempodeensamblajeA.setText("");
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -602,32 +636,38 @@ public class mainlab8 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-                //modificar
-               vinA1.setText(seleccionado.getVin());
-            tipodecarroA1.setText(seleccionado.getTipocarro());
-            marcaA1.setText(seleccionado.getMarca());
-            numerodepuertasA1.setText(String.valueOf(seleccionado.getNumeropuertas()));
-            colorA1.setText(seleccionado.getColor());
-            tipodemotorA1.setText(seleccionado.getTipodemotro());
-            precioA1.setText(String.valueOf(seleccionado.getPrecio()));
-            hibridacionA1.setText(seleccionado.getHibridacion());
-            cantidaddepasajerosA1.setText(String.valueOf(seleccionado.getCantidaddepasajeros()));
-            tiempodeensamblajeA1.setText(String.valueOf(seleccionado.getTiempodeensanblaje())); 
-        Dba db = new Dba("./base1.mdb");
+        //modificar
+        admiistrautos ap
+                = new admiistrautos("./autosvin.cbm");
+        ap.cargarArchivo();
+        ap.getListaautosm().remove(seleccionadoe);
+
+        vinA1.setText(seleccionado.getVin());
+        tipodecarroA1.setText(seleccionado.getTipocarro());
+        marcaA1.setText(seleccionado.getMarca());
+        numerodepuertasA1.setText(String.valueOf(seleccionado.getNumeropuertas()));
+        colorA1.setText(seleccionado.getColor());
+        tipodemotorA1.setText(seleccionado.getTipodemotro());
+        precioA1.setText(String.valueOf(seleccionado.getPrecio()));
+        hibridacionA1.setText(seleccionado.getHibridacion());
+        cantidaddepasajerosA1.setText(String.valueOf(seleccionado.getCantidaddepasajeros()));
+        tiempodeensamblajeA1.setText(String.valueOf(seleccionado.getTiempodeensanblaje()));
+        Dba db = new Dba("./base1.accdb");
         db.conectar();
         try {
-            db.query.execute("update autos set marca='" + marcaA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-            db.query.execute("update autos set tipo de carro='" + tipodecarroA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-            db.query.execute("update autos set numero de puertas='" + Integer.parseInt(numerodepuertasA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-            db.query.execute("update autos set color='" + colorA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-            db.query.execute("update autos set tipo de  motor='" + tipodemotorA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-            db.query.execute("update autos set precio='" + Integer.parseInt(precioA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-             db.query.execute("update autos set hibridacion='" + hibridacionA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-              db.query.execute("update autos set cantidad de pasajeros='" + Integer.parseInt(cantidaddepasajerosA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-               db.query.execute("update autos set tiempo de ensamblaje='" + tiempodeensamblajeA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
-          //  db.query.execute("update alumnos set direccion='col x' where cuenta=5000");
+            db.query.execute("update autos set marca='" + marcaA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set tipo de carro='" + tipodecarroA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set numero de puertas='" + Integer.parseInt(numerodepuertasA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set color='" + colorA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set tipo de  motor='" + tipodemotorA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set precio='" + Integer.parseInt(precioA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set hibridacion='" + hibridacionA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set cantidad de pasajeros='" + Integer.parseInt(cantidaddepasajerosA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            db.query.execute("update autos set tiempo de ensamblaje='" + tiempodeensamblajeA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'");
+            //  db.query.execute("update alumnos set direccion='col x' where cuenta=5000");
             db.commit();
             JOptionPane.showMessageDialog(this, "Auto modificado");
+            ap.getListaautosm().add(new autosm(vinA1.getText(), marcaA1.getText(), tipodecarroA1.getText(), Integer.parseInt(numerodepuertasA1.getText()), colorA1.getText(), tipodemotorA1.getText(), Integer.parseInt(precioA1.getText()), hibridacionA1.getText(), Integer.parseInt(cantidaddepasajerosA1.getText()), Integer.parseInt(tiempodeensamblajeA1.getText())));
             vinA1.setText("");
             marcaA1.setText("");
             tipodecarroA1.setText("");
@@ -642,21 +682,111 @@ public class mainlab8 extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         db.desconectar();
-        
+
 
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void cb_autosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_autosItemStateChanged
-       try {
-         
+        try {
+
             if (evt.getStateChange() == 1) {
                 seleccionado = (autosm) cb_autos.getSelectedItem();
+                seleccionadoe = (autosm) cb_autos.getSelectedItem();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrio un error");
             e.printStackTrace();
         }
     }//GEN-LAST:event_cb_autosItemStateChanged
+
+    private void cb_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_eliminarActionPerformed
+
+    }//GEN-LAST:event_cb_eliminarActionPerformed
+
+    private void cb_eliminarItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_eliminarItemStateChanged
+
+        Dba db = new Dba("./lab8.accdb");
+        db.conectar();
+
+        if (evt.getStateChange() == 2) {
+            autosm a = (autosm) cb_eliminar.getSelectedItem();
+            Object[] newrow = {a.getVin(), a.getColor(), a.getMarca(), a.getTipodemotro(), a.getTipocarro()};
+            DefaultTableModel modelo
+                    = (DefaultTableModel) tabla1.getModel();
+            modelo.addRow(newrow);
+            tabla1.setModel(modelo);
+        }
+
+    }//GEN-LAST:event_cb_eliminarItemStateChanged
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        admiistrautos ap
+                = new admiistrautos("./autosvin.cbm");
+        ap.cargarArchivo();
+        for (int i = 0; i < ap.getListaautosm().size(); i++) {
+            DefaultComboBoxModel modelo1
+                    = new DefaultComboBoxModel(
+                            ap.getListaautosm().toArray());
+            cb_eliminar.setModel(modelo1);
+        }
+        eliminar();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        try {
+            admiistrautos ap
+                    = new admiistrautos("./autosvin.cbm");
+            ap.cargarArchivo();
+            Dba db = new Dba("./lab8.accdb");
+            db.conectar();
+            if (tabla1.getSelectedRow() >= 0) {
+                DefaultTableModel modelo
+                        = (DefaultTableModel) tabla1.getModel();
+                for (int i = 0; i < ap.getListaautosm().size(); i++) {
+                    int row = tabla1.getSelectedRow();
+                    // Component cuenta = tabla1.getc
+                    String vin = ((String) modelo.getValueAt(
+                            tabla1.getSelectedRow(), 0));
+                    String color = ((String) modelo.getValueAt(
+                            tabla1.getSelectedRow(), 1));
+                    //System.out.println(id + "  ni" + nombre);
+                    //  tabla1.setModel(modelo);
+                    if (ap.getListaautosm().get(i).getVin().equals(vin) & ap.getListaautosm().get(i).getColor().equals(color)) {
+                        //  System.out.println("si entra pero no hace nada");
+                        ap.cargarArchivo();
+                        ap.getListaautosm().remove(i);
+                        cb_autos.removeItem(i);
+                        ap.escribirArchivo();
+                        DefaultComboBoxModel modelo1
+                                = new DefaultComboBoxModel(
+                                        ap.getListaautosm().toArray());
+                        cb_autos.setModel(modelo1);
+
+                        db.conectar();
+                        try {
+                            // db.query.execute("delete from alumnos where cuenta=5000");
+                            db.query.execute("delete from autos where vin='" + vin + "'");
+                            db.commit();
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
+
+                    }
+                }
+
+                db.desconectar();
+                modelo.removeRow(tabla1.getSelectedRow());
+                tabla1.setModel(modelo);
+
+                ap.escribirArchivo();
+
+                JOptionPane.showMessageDialog(this, " Maestro Eliminado");
+                //tf_edad_maxima.setText(maxima_edad());   
+            }
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -699,13 +829,21 @@ public class mainlab8 extends javax.swing.JFrame {
         nuevoauto.setLocationRelativeTo(this);
         nuevoauto.setVisible(true);
     }
+
     private void modificarauto() {
         modificarauto.setModal(true);
         modificarauto.pack();
         modificarauto.setLocationRelativeTo(this);
         modificarauto.setVisible(true);
     }
-   
+
+    private void eliminar() {
+        eliminar.setModal(true);
+        eliminar.pack();
+        eliminar.setLocationRelativeTo(this);
+        eliminar.setVisible(true);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cantidaddepasajerosA;
     private javax.swing.JTextField cantidaddepasajerosA1;
@@ -718,6 +856,7 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JTextField hibridacionA1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -753,7 +892,6 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField marcaA;
     private javax.swing.JTextField marcaA1;
     private javax.swing.JDialog modificarauto;
@@ -762,6 +900,7 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JTextField numerodepuertasA1;
     private javax.swing.JTextField precioA;
     private javax.swing.JTextField precioA1;
+    private javax.swing.JTable tabla1;
     private javax.swing.JTextField tiempodeensamblajeA;
     private javax.swing.JTextField tiempodeensamblajeA1;
     private javax.swing.JTextField tipodecarroA;
@@ -772,4 +911,6 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JTextField vinA1;
     // End of variables declaration//GEN-END:variables
    autosm seleccionado;
+    autosm seleccionadoe;
+    autosm seleccionadoeliminar;
 }
