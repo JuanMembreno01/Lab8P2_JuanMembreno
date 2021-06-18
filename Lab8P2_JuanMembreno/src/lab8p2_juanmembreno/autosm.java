@@ -9,8 +9,8 @@ package lab8p2_juanmembreno;
  *
  * @author usuario
  */
-public class auto {
-   private int vin;
+public class autosm {
+   private String vin;
    private String marca;
    private String tipocarro;
    private int numeropuertas;
@@ -21,10 +21,10 @@ public class auto {
    private int cantidaddepasajeros;
    private int tiempodeensanblaje;
 
-    public auto() {
+    public autosm() {
     }
 
-    public auto(int vin, String marca, String tipocarro, int numeropuertas, String color, String tipodemotro, int precio, String hibridacion, int cantidaddepasajeros, int tiempodeensanblaje) {
+    public autosm( String  vin, String marca, String tipocarro, int numeropuertas, String color, String tipodemotro, int precio, String hibridacion, int cantidaddepasajeros, int tiempodeensanblaje) {
         this.vin = vin;
         this.marca = marca;
         this.tipocarro = tipocarro;
@@ -37,14 +37,15 @@ public class auto {
         this.tiempodeensanblaje = tiempodeensanblaje;
     }
 
-    public int getVin() {
+    public String getVin() {
         return vin;
     }
 
-    public void setVin(int vin) {
+    public void setVin(String vin) {
         this.vin = vin;
     }
 
+    
     public String getMarca() {
         return marca;
     }
@@ -121,7 +122,8 @@ public class auto {
 
     @Override
     public String toString() {
-        return "auto{" + "vin=" + vin + ", marca=" + marca + ", tipocarro=" + tipocarro + ", numeropuertas=" + numeropuertas + ", color=" + color + ", tipodemotro=" + tipodemotro + ", precio=" + precio + ", hibridacion=" + hibridacion + ", cantidaddepasajeros=" + cantidaddepasajeros + ", tiempodeensanblaje=" + tiempodeensanblaje + '}';
+        return vin;
+        //return "auto{" + "vin=" + vin + ", marca=" + marca + ", tipocarro=" + tipocarro + ", numeropuertas=" + numeropuertas + ", color=" + color + ", tipodemotro=" + tipodemotro + ", precio=" + precio + ", hibridacion=" + hibridacion + ", cantidaddepasajeros=" + cantidaddepasajeros + ", tiempodeensanblaje=" + tiempodeensanblaje + '}';
     }
    
    

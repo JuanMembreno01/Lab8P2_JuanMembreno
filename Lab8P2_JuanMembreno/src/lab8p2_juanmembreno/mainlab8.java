@@ -5,6 +5,10 @@
  */
 package lab8p2_juanmembreno;
 
+import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
@@ -29,6 +33,56 @@ public class mainlab8 extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         nuevoauto = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        marcaA = new javax.swing.JTextField();
+        tipodecarroA = new javax.swing.JTextField();
+        numerodepuertasA = new javax.swing.JTextField();
+        colorA = new javax.swing.JTextField();
+        vinA = new javax.swing.JTextField();
+        precioA = new javax.swing.JTextField();
+        hibridacionA = new javax.swing.JTextField();
+        cantidaddepasajerosA = new javax.swing.JTextField();
+        tiempodeensamblajeA = new javax.swing.JTextField();
+        tipodemotorA = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        modificarauto = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        precioA1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        hibridacionA1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        cantidaddepasajerosA1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        tiempodeensamblajeA1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        tipodemotorA1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        marcaA1 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        tipodecarroA1 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        numerodepuertasA1 = new javax.swing.JTextField();
+        colorA1 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        vinA1 = new javax.swing.JTextField();
+        cb_autos = new javax.swing.JComboBox<>();
+        eliminar = new javax.swing.JDialog();
+        cb_eliminar = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -43,15 +97,378 @@ public class mainlab8 extends javax.swing.JFrame {
 
         jMenuItem1.setText("jMenuItem1");
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Nuevo Auto");
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        jLabel2.setText("VIN");
+
+        jLabel3.setText("MARCA");
+
+        jLabel4.setText("TIPO DE CARRO");
+
+        jLabel5.setText("COLOR");
+
+        jLabel6.setText("TIPO DE MOTOR");
+
+        jLabel7.setText("PRECIO");
+
+        jLabel8.setText("HIBRIDACION");
+
+        jLabel9.setText("CANTIDAD DE PASAJEROS");
+
+        jLabel10.setText("TIEMPO DE ENSAMBLAJE");
+
+        jLabel11.setText("NUMERO DE PUERTAS");
+
+        jButton1.setText("CREAR");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout nuevoautoLayout = new javax.swing.GroupLayout(nuevoauto.getContentPane());
         nuevoauto.getContentPane().setLayout(nuevoautoLayout);
         nuevoautoLayout.setHorizontalGroup(
             nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoautoLayout.createSequentialGroup()
+                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(nuevoautoLayout.createSequentialGroup()
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(nuevoautoLayout.createSequentialGroup()
+                                            .addComponent(jLabel11)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(numerodepuertasA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel9))
+                                        .addGroup(nuevoautoLayout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(60, 60, 60)
+                                            .addComponent(tipodemotorA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGroup(nuevoautoLayout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addGap(69, 69, 69)
+                                        .addComponent(colorA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(250, 250, 250)
+                                        .addComponent(jLabel10))))
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel8)
+                                .addGap(7, 7, 7)))
+                        .addGap(53, 53, 53)
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(hibridacionA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cantidaddepasajerosA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tiempodeensamblajeA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(nuevoautoLayout.createSequentialGroup()
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(nuevoautoLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7))
+                                    .addGroup(nuevoautoLayout.createSequentialGroup()
+                                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(tipodecarroA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addGap(73, 73, 73)
+                                                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(vinA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(marcaA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(71, 71, 71))
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(497, 497, 497)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(precioA, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoautoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
         );
         nuevoautoLayout.setVerticalGroup(
             nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(nuevoautoLayout.createSequentialGroup()
+                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(nuevoautoLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(precioA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoautoLayout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(vinA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(52, 52, 52)
+                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(marcaA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(hibridacionA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(nuevoautoLayout.createSequentialGroup()
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(tipodecarroA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel11)
+                                    .addComponent(cantidaddepasajerosA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(numerodepuertasA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(colorA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(nuevoautoLayout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(nuevoautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(tiempodeensamblajeA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel6))
+                    .addComponent(tipodemotorA, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(101, Short.MAX_VALUE))
+        );
+
+        jLabel12.setText("TIPO DE MOTOR");
+
+        jLabel13.setText("PRECIO");
+
+        jLabel14.setText("HIBRIDACION");
+
+        jLabel15.setText("CANTIDAD DE PASAJEROS");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Modificar Auto");
+        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        jLabel17.setText("TIEMPO DE ENSAMBLAJE");
+
+        jLabel18.setText("NUMERO DE PUERTAS");
+
+        jButton2.setText("Modificar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jLabel19.setText("VIN");
+
+        jLabel20.setText("MARCA");
+
+        jLabel21.setText("TIPO DE CARRO");
+
+        jLabel22.setText("COLOR");
+
+        cb_autos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_autosItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modificarautoLayout = new javax.swing.GroupLayout(modificarauto.getContentPane());
+        modificarauto.getContentPane().setLayout(modificarautoLayout);
+        modificarautoLayout.setHorizontalGroup(
+            modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modificarautoLayout.createSequentialGroup()
+                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(modificarautoLayout.createSequentialGroup()
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(75, 75, 75)
+                                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(modificarautoLayout.createSequentialGroup()
+                                            .addComponent(jLabel18)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(numerodepuertasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel15))
+                                        .addGroup(modificarautoLayout.createSequentialGroup()
+                                            .addComponent(jLabel12)
+                                            .addGap(60, 60, 60)
+                                            .addComponent(tipodemotorA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGroup(modificarautoLayout.createSequentialGroup()
+                                        .addComponent(jLabel22)
+                                        .addGap(69, 69, 69)
+                                        .addComponent(colorA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(250, 250, 250)
+                                        .addComponent(jLabel17))))
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(0, 837, Short.MAX_VALUE)
+                                .addComponent(jLabel14)
+                                .addGap(7, 7, 7)))
+                        .addGap(53, 53, 53)
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(hibridacionA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cantidaddepasajerosA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tiempodeensamblajeA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(modificarautoLayout.createSequentialGroup()
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(modificarautoLayout.createSequentialGroup()
+                                        .addComponent(jLabel19)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel13))
+                                    .addGroup(modificarautoLayout.createSequentialGroup()
+                                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                                .addComponent(jLabel21)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(tipodecarroA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                                .addComponent(jLabel20)
+                                                .addGap(73, 73, 73)
+                                                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(vinA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(marcaA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(71, 71, 71))
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(cb_autos, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(198, 198, 198)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(precioA1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modificarautoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
+        );
+        modificarautoLayout.setVerticalGroup(
+            modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificarautoLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificarautoLayout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(precioA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modificarautoLayout.createSequentialGroup()
+                        .addComponent(cb_autos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(vinA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(52, 52, 52)
+                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(marcaA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel14)
+                    .addComponent(hibridacionA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(modificarautoLayout.createSequentialGroup()
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel21)
+                            .addComponent(tipodecarroA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel18)
+                                    .addComponent(cantidaddepasajerosA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(numerodepuertasA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel22)
+                                    .addComponent(colorA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(modificarautoLayout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addGroup(modificarautoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(tiempodeensamblajeA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel12))
+                    .addComponent(tipodemotorA1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(131, Short.MAX_VALUE))
+        );
+
+        cb_eliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout eliminarLayout = new javax.swing.GroupLayout(eliminar.getContentPane());
+        eliminar.getContentPane().setLayout(eliminarLayout);
+        eliminarLayout.setHorizontalGroup(
+            eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarLayout.createSequentialGroup()
+                .addGroup(eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(eliminarLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(eliminarLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 923, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(90, Short.MAX_VALUE))
+        );
+        eliminarLayout.setVerticalGroup(
+            eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(eliminarLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +478,11 @@ public class mainlab8 extends javax.swing.JFrame {
         jMenu5.setText("CRUD");
 
         jMenuItem3.setText("Crear");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem3);
 
         jMenuItem4.setText("Modificar");
@@ -115,12 +537,126 @@ public class mainlab8 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        admiistrautos ap
+                    = new admiistrautos("./autosvin.cbm");
+            ap.cargarArchivo();
+        for(int i=0;i<ap.getListaautosm().size();i++){
+             DefaultComboBoxModel modelo1
+                            = new DefaultComboBoxModel(
+                                    ap.getListaautosm().toArray());
+                    cb_autos.setModel(modelo1);
+        }
+        modificarauto();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        nuevoauto();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        //agregar
+        Dba db = new Dba("./lab8.mdb");
+        db.conectar();
+        try {
+            admiistrautos ap
+                    = new admiistrautos("./autosvin.cbm");
+            ap.cargarArchivo();
+            int c;
+            String n;
+            c = Integer.parseInt(JOptionPane.showInputDialog("Codigo"));
+            n = JOptionPane.showInputDialog("Nombre");
+            db.query.execute("INSERT INTO Autos"
+                    + " (Vin,marca,tipo  de carro,numero de puertas,color,tipo de motor,precio,hibridacion,catidad de pasajeros,tiempo de ensamblaje)"
+                    + "VALUES ('" + Integer.parseInt(vinA.getText()) + "', '" + tipodecarroA.getText() + "', '" + Integer.parseInt(numerodepuertasA.getText()) + "', '" + colorA.getText() + "', '" + tipodemotorA.getText() + "', '" + Integer.parseInt(precioA.getText()) + "', '" + hibridacionA.getText() + "', '" + Integer.parseInt(cantidaddepasajerosA.getText()) + "', '" + tiempodeensamblajeA.getText() + "')");
+
+            /* db.query.execute("INSERT INTO alumnos"
+                    + " (cuenta,nombre)"
+                    + " VALUES ('" + c + "', '" + n + "')");*/
+            db.commit();
+            JOptionPane.showMessageDialog(this, "Auto Agregado");
+            autosm a = new autosm(vinA.getText(),marcaA.getText(),tipodecarroA.getText(),Integer.parseInt(numerodepuertasA.getText()),colorA.getText(),tipodemotorA.getText(),Integer.parseInt(precioA.getText()),hibridacionA.getText(),Integer.parseInt(cantidaddepasajerosA.getText()),Integer.parseInt(tiempodeensamblajeA.getText()));
+            ap.getListaautosm().add(a);
+            ap.escribirArchivo();
+            vinA.setText("");
+            marcaA.setText("");
+            tipodecarroA.setText("");
+            numerodepuertasA.setText("");
+            colorA.setText("");
+            tipodemotorA.setText("");
+            precioA.setText("");
+            hibridacionA.setText("");
+            cantidaddepasajerosA.setText("");
+            tiempodeensamblajeA.setText("");
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        db.desconectar();
+
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+                //modificar
+               vinA1.setText(seleccionado.getVin());
+            tipodecarroA1.setText(seleccionado.getTipocarro());
+            marcaA1.setText(seleccionado.getMarca());
+            numerodepuertasA1.setText(String.valueOf(seleccionado.getNumeropuertas()));
+            colorA1.setText(seleccionado.getColor());
+            tipodemotorA1.setText(seleccionado.getTipodemotro());
+            precioA1.setText(String.valueOf(seleccionado.getPrecio()));
+            hibridacionA1.setText(seleccionado.getHibridacion());
+            cantidaddepasajerosA1.setText(String.valueOf(seleccionado.getCantidaddepasajeros()));
+            tiempodeensamblajeA1.setText(String.valueOf(seleccionado.getTiempodeensanblaje())); 
+        Dba db = new Dba("./base1.mdb");
+        db.conectar();
+        try {
+            db.query.execute("update autos set marca='" + marcaA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+            db.query.execute("update autos set tipo de carro='" + tipodecarroA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+            db.query.execute("update autos set numero de puertas='" + Integer.parseInt(numerodepuertasA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+            db.query.execute("update autos set color='" + colorA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+            db.query.execute("update autos set tipo de  motor='" + tipodemotorA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+            db.query.execute("update autos set precio='" + Integer.parseInt(precioA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+             db.query.execute("update autos set hibridacion='" + hibridacionA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+              db.query.execute("update autos set cantidad de pasajeros='" + Integer.parseInt(cantidaddepasajerosA1.getText()) + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+               db.query.execute("update autos set tiempo de ensamblaje='" + tiempodeensamblajeA1.getText() + "'where vin='" + Integer.parseInt(seleccionado.getVin()) + "'") ;
+          //  db.query.execute("update alumnos set direccion='col x' where cuenta=5000");
+            db.commit();
+            JOptionPane.showMessageDialog(this, "Auto modificado");
+            vinA1.setText("");
+            marcaA1.setText("");
+            tipodecarroA1.setText("");
+            numerodepuertasA1.setText("");
+            colorA1.setText("");
+            tipodemotorA1.setText("");
+            precioA1.setText("");
+            hibridacionA1.setText("");
+            cantidaddepasajerosA1.setText("");
+            tiempodeensamblajeA1.setText("");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        db.desconectar();
+        
+
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void cb_autosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_autosItemStateChanged
+       try {
+         
+            if (evt.getStateChange() == 1) {
+                seleccionado = (autosm) cb_autos.getSelectedItem();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_cb_autosItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -157,7 +693,53 @@ public class mainlab8 extends javax.swing.JFrame {
         });
     }
 
+    private void nuevoauto() {
+        nuevoauto.setModal(true);
+        nuevoauto.pack();
+        nuevoauto.setLocationRelativeTo(this);
+        nuevoauto.setVisible(true);
+    }
+    private void modificarauto() {
+        modificarauto.setModal(true);
+        modificarauto.pack();
+        modificarauto.setLocationRelativeTo(this);
+        modificarauto.setVisible(true);
+    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cantidaddepasajerosA;
+    private javax.swing.JTextField cantidaddepasajerosA1;
+    private javax.swing.JComboBox<String> cb_autos;
+    private javax.swing.JComboBox<String> cb_eliminar;
+    private javax.swing.JTextField colorA;
+    private javax.swing.JTextField colorA1;
+    private javax.swing.JDialog eliminar;
+    private javax.swing.JTextField hibridacionA;
+    private javax.swing.JTextField hibridacionA1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -170,6 +752,24 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField marcaA;
+    private javax.swing.JTextField marcaA1;
+    private javax.swing.JDialog modificarauto;
     private javax.swing.JDialog nuevoauto;
+    private javax.swing.JTextField numerodepuertasA;
+    private javax.swing.JTextField numerodepuertasA1;
+    private javax.swing.JTextField precioA;
+    private javax.swing.JTextField precioA1;
+    private javax.swing.JTextField tiempodeensamblajeA;
+    private javax.swing.JTextField tiempodeensamblajeA1;
+    private javax.swing.JTextField tipodecarroA;
+    private javax.swing.JTextField tipodecarroA1;
+    private javax.swing.JTextField tipodemotorA;
+    private javax.swing.JTextField tipodemotorA1;
+    private javax.swing.JTextField vinA;
+    private javax.swing.JTextField vinA1;
     // End of variables declaration//GEN-END:variables
+   autosm seleccionado;
 }
