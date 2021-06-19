@@ -109,8 +109,6 @@ public class mainlab8 extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -728,12 +726,6 @@ public class mainlab8 extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("jMenu3");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("jMenu4");
-        jMenuBar1.add(jMenu4);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -780,6 +772,12 @@ public class mainlab8 extends javax.swing.JFrame {
             admiistrautos ap
                     = new admiistrautos("./autosvin.cbm");
             ap.cargarArchivo();
+            for (int i = 0; i < ap.getListaautosm().size(); i++) {
+                if (ap.getListaautosm().get(i).getVin().equals(vinA.getText())) {
+                    JOptionPane.showMessageDialog(this, "No se puede repetir el vin Agregado");
+                    break;
+                }
+            }
             /* int c;
             String n;
             c = Integer.parseInt(JOptionPane.showInputDialog("Codigo"));
@@ -978,63 +976,65 @@ public class mainlab8 extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         admiistrautos ap
-                    = new admiistrautos("./autosvin.cbm");
-            ap.cargarArchivo();
-            for(int i=0;i<ap.getListaautosm().size();i++){
-                if(ap.getListaautosm().get(i).getMarca().equals(marcaF.getText())){
-                    Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
-            DefaultTableModel modelo
-                    = (DefaultTableModel) tabla2.getModel();
-            modelo.addRow(newrow);
-            tabla2.setModel(modelo);
-                }
+                = new admiistrautos("./autosvin.cbm");
+        ap.cargarArchivo();
+        for (int i = 0; i < ap.getListaautosm().size(); i++) {
+            if (ap.getListaautosm().get(i).getMarca().equals(marcaF.getText())) {
+                Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(), ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+                DefaultTableModel modelo
+                        = (DefaultTableModel) tabla2.getModel();
+                modelo.addRow(newrow);
+                tabla2.setModel(modelo);
             }
+        }
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroActionPerformed
-      admiistrautos ap
-                    = new admiistrautos("./autosvin.cbm");
-            ap.cargarArchivo();
-           while(!filtro.equals("generalista")&!filtro.equals("premium")&!filtro.equals("deportivo")){
-              JOptionPane.showMessageDialog(this, " Categoria  Incorrecta");  
-              filtro.setText("");
-           }
-           if(filtro.equals("generalista")){
-            for(int i=0;i<ap.getListaautosm().size();i++){
-                if(ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("seat")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("skoda")){
-                     Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
-            DefaultTableModel modelo
-                    = (DefaultTableModel) tabla3.getModel();
-            modelo.addRow(newrow);
-            tabla3.setModel(modelo);
+        admiistrautos ap
+                = new admiistrautos("./autosvin.cbm");
+        ap.cargarArchivo();
+        while (!filtro.equals("generalista") & !filtro.equals("premium") & !filtro.equals("deportivo")) {
+            JOptionPane.showMessageDialog(this, " Categoria  Incorrecta");
+            filtro.setText("");
+        }
+        if (filtro.equals("generalista")) {
+            for (int i = 0; i < ap.getListaautosm().size(); i++) {
+                if (ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("seat") || ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("skoda")) {
+                    Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(), ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+                    DefaultTableModel modelo
+                            = (DefaultTableModel) tabla3.getModel();
+                    modelo.addRow(newrow);
+                    tabla3.setModel(modelo);
                 }
-            }   
-           }if(filtro.equals("premium")){
-              for(int i=0;i<ap.getListaautosm().size();i++){
-                if(ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("audi")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Volkswagen")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Bentley")){
-                     Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
-            DefaultTableModel modelo
-                    = (DefaultTableModel) tabla3.getModel();
-            modelo.addRow(newrow);
-            tabla3.setModel(modelo);
+            }
+        }
+        if (filtro.equals("premium")) {
+            for (int i = 0; i < ap.getListaautosm().size(); i++) {
+                if (ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("audi") || ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Volkswagen") || ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Bentley")) {
+                    Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(), ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+                    DefaultTableModel modelo
+                            = (DefaultTableModel) tabla3.getModel();
+                    modelo.addRow(newrow);
+                    tabla3.setModel(modelo);
                 }
-            }   
-           }if(filtro.equals("deportivo")){
-                 for(int i=0;i<ap.getListaautosm().size();i++){
-                if(ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Porsche")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Lamborghini")||ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Bugatti")){
-                     Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(),ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
-            DefaultTableModel modelo
-                    = (DefaultTableModel) tabla3.getModel();
-            modelo.addRow(newrow);
-            tabla3.setModel(modelo);
+            }
+        }
+        if (filtro.equals("deportivo")) {
+            for (int i = 0; i < ap.getListaautosm().size(); i++) {
+                if (ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Porsche") || ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Lamborghini") || ap.getListaautosm().get(i).getMarca().equalsIgnoreCase("Bugatti")) {
+                    Object[] newrow = {ap.getListaautosm().get(i).getVin(), ap.getListaautosm().get(i).getColor(), ap.getListaautosm().get(i).getMarca(), ap.getListaautosm().get(i).getTipodemotro(), ap.getListaautosm().get(i).getTipocarro()};
+                    DefaultTableModel modelo
+                            = (DefaultTableModel) tabla3.getModel();
+                    modelo.addRow(newrow);
+                    tabla3.setModel(modelo);
                 }
-            }   
-           }
-            
+            }
+        }
+
     }//GEN-LAST:event_filtroActionPerformed
 
     private void categoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoriaMouseClicked
-       
+
     }//GEN-LAST:event_categoriaMouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
@@ -1043,7 +1043,7 @@ public class mainlab8 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-       tabla2.removeAll();
+        tabla2.removeAll();
         filtropormarca.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1102,13 +1102,14 @@ public class mainlab8 extends javax.swing.JFrame {
         eliminar.setLocationRelativeTo(this);
         eliminar.setVisible(true);
     }
-    
+
     private void filtropormarca() {
         filtropormarca.setModal(true);
         filtropormarca.pack();
         filtropormarca.setLocationRelativeTo(this);
         filtropormarca.setVisible(true);
     }
+
     private void filtroporcategoria() {
         filtroporcategoria.setModal(true);
         filtroporcategoria.pack();
@@ -1162,8 +1163,6 @@ public class mainlab8 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
